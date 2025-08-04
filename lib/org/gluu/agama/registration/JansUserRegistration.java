@@ -59,9 +59,6 @@ public class JansUserRegistration extends UserRegistration {
     // private HashMap<String, String> userCodes = new HashMap<>();
     private static final Map<String, String> userCodes = new HashMap<>();
 
-    public JansUserRegistration() {
-        this.flowConfig = new HashMap<>();
-    }
 
     // Required by your `UserRegistration.getInstance(config)` call
     public JansUserRegistration(Map config) {
