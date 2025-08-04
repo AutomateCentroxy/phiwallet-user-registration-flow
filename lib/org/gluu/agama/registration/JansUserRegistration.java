@@ -45,6 +45,7 @@ public class JansUserRegistration extends UserRegistration {
     private static final String REFERRAL = "referralCode";
     private static final String EXT_ATTR = "jansExtUid";
     private static final String MOBILE = "mobile";
+    private static final String LANGUAGE = "language";
     private static final int OTP_LENGTH = 6;
     public static final int OTP_CODE_LENGTH = 6;
     private static final String SUBJECT_TEMPLATE = "Here's your verification code: %s";
@@ -189,6 +190,7 @@ public class JansUserRegistration extends UserRegistration {
         String mail = combined.get("mail");
         String password = combined.get("userPassword");
         String phoneNumber = combined.get("phoneNumber");
+        String language = combined.get("language");
 
         if (StringHelper.isEmpty(uid) || StringHelper.isEmpty(password)) {
             throw new IllegalArgumentException("UID and password are required.");
@@ -202,6 +204,7 @@ public class JansUserRegistration extends UserRegistration {
         user.setAttribute("sn", uid);
         user.setAttribute("userPassword", password);
         user.setAttribute("mobile", phoneNumber);
+        user.setAttribute("language", language);
 
         if (StringHelper.isNotEmpty(combined.get("residenceCountry"))) {
             user.setAttribute("residenceCountry", combined.get("residenceCountry"));
@@ -294,3 +297,4 @@ public class JansUserRegistration extends UserRegistration {
     }
 
 }
+
