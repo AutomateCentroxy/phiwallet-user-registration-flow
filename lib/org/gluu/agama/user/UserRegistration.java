@@ -24,8 +24,4 @@ public abstract class UserRegistration {
     public static UserRegistration getInstance(HashMap config){
         return new JansUserRegistration(config);
     }
-    
-    public static UserRegistration getInstance(){
-        return new JansUserRegistration();
-    }
 }
