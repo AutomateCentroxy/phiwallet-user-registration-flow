@@ -3229,7 +3229,7 @@
 					"nodeColor": "",
 					"titleColor": "",
 					"descColor": "",
-					"displayName": "",
+					"displayName": "Taking user variable",
 					"hasComment": true,
 					"comment": "language attribute taking from User input"
 				}
@@ -3238,7 +3238,7 @@
 				"width": 170,
 				"height": 122
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false
 		},
 		{
