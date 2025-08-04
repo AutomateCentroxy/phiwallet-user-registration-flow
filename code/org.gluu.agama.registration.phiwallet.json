@@ -3218,14 +3218,20 @@
 				},
 				"previousNodeId": "assignmentNode-8d132c39-d12f-4d76-9064-d40a74250b0b",
 				"agamaData": {
-					"assignments": [],
+					"assignments": [
+						{
+							"variableTypeCheck": true,
+							"assignmentExpression": "userInput.language",
+							"assignedVariableName": "language"
+						}
+					],
 					"nodeIcon": "material-symbols:equal",
 					"nodeColor": "",
 					"titleColor": "",
 					"descColor": "",
 					"displayName": "",
 					"hasComment": true,
-					"comment": ""
+					"comment": "language attribute taking from User input"
 				}
 			},
 			"measured": {
@@ -3308,7 +3314,7 @@
 				"width": 170,
 				"height": 122
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false
 		}
 	],
@@ -4909,8 +4915,8 @@
 		}
 	],
 	"viewport": {
-		"x": 1299.619387046047,
-		"y": 127.78454349655419,
+		"x": 1193.619387046047,
+		"y": 108.78454349655414,
 		"zoom": 0.7412335049014176
 	}
 }
