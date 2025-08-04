@@ -21,8 +21,7 @@ maxJourney = Repeat 6 times max
      referralCode = userInput.referralCode
      residenceCountry = userInput.residenceCountry
      phone = userInput.phoneNumber
-     // sent sms otp
-     smsOtpSend = Call userRegistrationService sendOTPCode phone
+     Call __________#__________ 
      // The OTP Code has been send to user.
      Log "@info OTP generated and send to: " phone
      otpValidationResult = false
@@ -126,8 +125,8 @@ maxJourney = Repeat 6 times max
                                              uiFeedback.errorMessage = "You have reached the maximun email OTP verification"
                                              // Email OTP verification loop completed
                                              Log "@info Email OTP verification loop completed"
-                                             it_jxwpj = {success:false, error: "User update flow reached max attempts. Try later"}
-                                             Finish it_jxwpj
+                                             it_asvfh = {success:false, error: "User update flow reached max attempts. Try later"}
+                                             Finish it_asvfh
                                         Otherwise
                                              // Password and Confirm password doesn't match
                                              Log "@trace Password and Confirm password doesn't match"
@@ -161,5 +160,5 @@ maxJourney = Repeat 6 times max
 // Maximum attempt reached
 Log "@info Maximum attempt reached"
 // User Registration flow failed
-it_mhgll = {success:false, error: "User registration flow reached max attempts try later"}
-Finish it_mhgll
+it_tjwzh = {success:false, error: "User registration flow reached max attempts try later"}
+Finish it_tjwzh
