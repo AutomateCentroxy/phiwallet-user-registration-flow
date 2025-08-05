@@ -59,11 +59,24 @@ public class JansUserRegistration extends UserRegistration {
     // private HashMap<String, String> userCodes = new HashMap<>();
     private static final Map<String, String> userCodes = new HashMap<>();
 
+    // ✅ No-arg constructor (required by Agama/CDI)
+    public JansUserRegistration() {
+        this.flowConfig = new HashMap<>();
+        logger.info("Initialized JansUserRegistration using default constructor (no config).");
+    }
 
-    // Required by your `UserRegistration.getInstance(config)` call
-    public JansUserRegistration(Map config) {
+    // ✅ Constructor used by getInstance()
+    private JansUserRegistration(Map config) {
         this.flowConfig = config;
         logger.info("Using Twilio account SID: {}", config.get("ACCOUNT_SID"));
+    }
+
+    // ✅ Singleton accessor
+    public static UserRegistration getInstance(Map config) {
+        if (INSTANCE == null) {
+            INSTANCE = new JansUserRegistration(config);
+        }
+        return INSTANCE;
     }
 
     public boolean passwordPolicyMatch(String userPassword) {
