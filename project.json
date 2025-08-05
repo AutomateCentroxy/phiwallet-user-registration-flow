@@ -31,5 +31,5 @@
         "org.gluu.agama.registration.smsVerification": {},
         "org.gluu.agama.registration.smsOTPVerification": {}
     },
-    "name": "agama-registration"
+    "name": "agama-phiwallet-registration"
 }

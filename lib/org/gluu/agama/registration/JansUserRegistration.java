@@ -45,6 +45,7 @@ public class JansUserRegistration extends UserRegistration {
     private static final String REFERRAL = "referralCode";
     private static final String EXT_ATTR = "jansExtUid";
     private static final String MOBILE = "mobile";
+    private static final String LANG = "lang";
     private static final int OTP_LENGTH = 6;
     public static final int OTP_CODE_LENGTH = 6;
     private static final String SUBJECT_TEMPLATE = "Here's your verification code: %s";
@@ -58,14 +59,24 @@ public class JansUserRegistration extends UserRegistration {
     // private HashMap<String, String> userCodes = new HashMap<>();
     private static final Map<String, String> userCodes = new HashMap<>();
 
+    // ✅ No-arg constructor (required by Agama/CDI)
     public JansUserRegistration() {
         this.flowConfig = new HashMap<>();
+        logger.info("Initialized JansUserRegistration using default constructor (no config).");
     }
 
-    // Required by your `UserRegistration.getInstance(config)` call
-    public JansUserRegistration(Map config) {
+    // ✅ Constructor used by getInstance()
+    private JansUserRegistration(Map config) {
         this.flowConfig = config;
         logger.info("Using Twilio account SID: {}", config.get("ACCOUNT_SID"));
+    }
+
+    // ✅ Singleton accessor
+    public static UserRegistration getInstance(Map config) {
+        if (INSTANCE == null) {
+            INSTANCE = new JansUserRegistration(config);
+        }
+        return INSTANCE;
     }
 
     public boolean passwordPolicyMatch(String userPassword) {
@@ -189,6 +200,7 @@ public class JansUserRegistration extends UserRegistration {
         String mail = combined.get("mail");
         String password = combined.get("userPassword");
         String phoneNumber = combined.get("phoneNumber");
+        String lang = combined.get("lang");
 
         if (StringHelper.isEmpty(uid) || StringHelper.isEmpty(password)) {
             throw new IllegalArgumentException("UID and password are required.");
@@ -202,6 +214,7 @@ public class JansUserRegistration extends UserRegistration {
         user.setAttribute("sn", uid);
         user.setAttribute("userPassword", password);
         user.setAttribute("mobile", phoneNumber);
+        user.setAttribute("lang", lang);
 
         if (StringHelper.isNotEmpty(combined.get("residenceCountry"))) {
             user.setAttribute("residenceCountry", combined.get("residenceCountry"));
