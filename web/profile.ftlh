@@ -45,7 +45,7 @@
 		  </div>
 		  <div class="form-group">
 			<label class="form-label">Language: <span class="required">*</span></label>
-			<input type="text" id="language" name="language" required="" placeholder="Enter language code (e.g., es, pt, ar, en, fr, id)" class="form-control">
+			<input type="text" id="lang" name="lang" required="" placeholder="Enter language code (e.g., es, pt, ar, en, fr, id)" class="form-control">
 		  </div>
 		  <div class="form-group">
 			<label class="form-label">Residence Country: <span class="required">*</span></label>
